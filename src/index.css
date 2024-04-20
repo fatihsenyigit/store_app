@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .login.Div{
+        background: linear-gradient(71deg, #FEAF00 19.35%, #F8D442 90.12%);;
+    }
+}
