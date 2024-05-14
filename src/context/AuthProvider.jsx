@@ -10,7 +10,7 @@ const AuthProvider = ({children}) => {
 
     const login = (info) => {
       setUser(info)
-      navigate('/home')
+      navigate('/dashboard')
     }
   return (
     <AuthContext.Provider value={{user, login}}>
