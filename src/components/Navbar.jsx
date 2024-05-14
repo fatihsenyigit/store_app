@@ -1,5 +1,5 @@
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { closeNavbar, logoutIcon, openNavbar } from "../helpers/icons";
 import { useContext, useState } from "react";
@@ -24,6 +24,7 @@ const navigation = [
 const Navbar = () => {
     const [show, setShow] = useState(false);
     const { logout } = useContext(AuthContext);
+    const location = useLocation()
   return (
     <nav className="bg-navbarColor md:text-sm">
       <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
@@ -58,7 +59,7 @@ const Navbar = () => {
                 key={item.title}
                 className="text-gray-700 flex justify-center font-medium"
               >
-                <NavLink to={item.path} className="block hover:bg-main">
+                <NavLink to={item.path} className={`block hover:bg-main rounded-full py-2 px-4 hover:text-white ${location.pathname === item.path ? "underline scale-125":""}`}>
                   {item.title}
                 </NavLink>
               </li>
