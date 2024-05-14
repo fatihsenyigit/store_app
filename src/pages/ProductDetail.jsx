@@ -1,8 +1,17 @@
 import React from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const ProductDetail = () => {
+    const navigate = useNavigate()
     const params = useParams();
+    // const {id} = useParams(); bu ID ile guncel urunu istek gondererek alabiliriz
+    // const getDetailData = async() => {
+    //     try {
+    //         const res = await axios.get(`https://dummyjson.com/products/${id}`)
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
     const {state} = useLocation();
     const {thumbnail, title, description, category, price, images} = state
   return (
@@ -44,10 +53,16 @@ const ProductDetail = () => {
               </div>
             </div>
             <div className="flex justify-end gap-3 mt-4">
-              <button className="border rounded-lg bg-labelColor text-white p-2">
+              <button
+                onClick={() => navigate(-1)}
+                className="border rounded-lg bg-labelColor text-white p-2"
+              >
                 Geri
               </button>
-              <button className="border rounded-lg bg-main text-white p-2">
+              <button
+                onClick={() => navigate("/dashboard")}
+                className="border rounded-lg bg-main text-white p-2"
+              >
                 Ana Sayfaya Dön
               </button>
             </div>
